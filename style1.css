@@ -1,0 +1,161 @@
+/*General Text*/
+
+body {
+    font-family:Trebuchet MS;
+    margin: 0;
+    padding: 0;
+  }
+h1 {
+    font-size:18px;
+    line-height:1em;
+}
+h2 {
+    font-size: 18px;
+}
+p {
+    font-size:16px;
+    display:inline;
+    line-height:normal;
+}
+
+/* Solid border */
+hr.solid {
+    border: 0.1px solid #ffffff;
+  }
+
+.section1 {
+    background-color:#e1ffb5;
+    color:#006946;
+    padding-top: 4px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+  } 
+
+/*Banner Style*/
+
+banner {
+    position: relative;
+    left: 30px;
+    margin: 5px;
+  }
+  
+  #ransomizer {
+    font-size:1.5em;
+    line-height: normal;
+    word-spacing:0.01em;
+  }
+  
+  #ransomizer div {
+    display:inline-block;
+  }
+  
+  #ransomizer .rww {
+    white-space: pre;
+    display:inline;
+    margin-left: .2em;
+    margin-right: .2em;
+  }
+  
+  #ransomizer .rr {
+    -ms-transform: rotate(1.5deg);
+    -webkit-transform: rotate(1.5deg);
+    transform: rotate(1.5deg);
+  }
+  
+  #ransomizer .rl {
+    -ms-transform: rotate(-1.5deg);
+    -webkit-transform: rotate(-1.5deg);
+    transform: rotate(-1.5deg);
+  }
+
+/*NAV*/
+  .nav {
+    background-color: #333;
+    overflow: hidden;
+  }
+  .nav a {
+    float: left;
+    color: white;
+    font-family: consolas;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .nav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .nav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+/*Dropdown Style*/
+#container {
+	margin: 0 auto;
+}
+p {
+	text-align: center;
+}
+nav {
+	margin: 10px 0;
+	background-color: #4CAF50;
+}
+nav ul {
+	padding: 0;
+  margin: 0;
+	list-style: none;
+	position: relative;
+	}
+nav ul li {
+	display:inline-block;
+	background-color: #4CAF50;
+	}
+nav a {
+	display:block;
+	padding:0 10px;	
+	color:#FFF;
+	font-size:15px;
+	line-height: 50px;
+	text-decoration:none;
+}
+nav a:hover { 
+	background-color: #000000; 
+}
+/* Hide Dropdowns by Default */
+nav ul ul {
+	display: none;
+	position: absolute; 
+	top: 50px; /* the height of the main nav */
+}
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+	display:inherit;
+}
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+	width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+/* Second, Third and more Tiers	*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px; 
+	left:170px;
+}
+/* Change this in order to change the Dropdown symbol */
+li > a:after { content:  ' ✴'; }
+li > a:only-child:after { content: ''; }
+
+
+/*Map Style*/  
+
+#map {
+    height:600px;
+    width:100%;
+    font-size:9px;
+}

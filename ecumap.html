@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ecuad Prompts are Loading...</title>
+    <meta name="description" content="360 IMAGE" />
+    <!--Styles-->
+    <link rel="stylesheet" type="text/css" href="style2.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--Scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="/script.js"></script>
+
+  </head>
+
+<!--Page Buttons-->
+  <body>
+    <div class="vrnav">
+      <!--<br>-->
+      <a id="forward" onclick="goNext()"><i class="material-icons">arrow_forward</i></a>
+      <!--<br>-->
+      <a id="back" onclick="goBack()"><i class="material-icons">arrow_back</i></a>
+      <!--<br>-->
+      <a id="vr" onclick="location.reload()"><i class="material-icons">refresh</i></a>
+    </div>
+<!--Top Banner-->
+    <div class="vrmenu">
+      <!--<br>-->
+      <a id="help" href="#"><i class="material-icons">help</i></a>
+      <a id="home" href="index.html"><i class="material-icons">home</i></a>
+    </div>
+<!--Toggle Aframe's Default VR/AR Modes-->
+    <a-scene image-toggle vr-mode-ui="enabled: false">
+<!--Main Home Image-->
+      <a-assets>
+        <img
+          id="skybox"
+          src="https://cdn.glitch.global/c14f8f40-c999-4e02-b856-4ea4bb89ec38/ALL.png?v=1679792410614"
+        />
+      </a-assets>
+
+      <a-sky id="sky" src="#skybox"></a-sky>
+      <a-camera id="camera" look-controls="pointerLockEnabled: false">
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
