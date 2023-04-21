@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>F.Creek Collage Map</title>
+    <meta charset="utf-8"> 
+    <!--Set Mobile Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>FCCMAP</title>
     <!--Page Stylesheet-->
     <link rel="stylesheet" type="text/css" href="/style1.css" />   
     <!--Google Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!--Page JS-->
+    <!--VR MAP JS-->
     <script src="script.js"></script>
     <!--Leaflet Map Stylesheet-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
@@ -16,98 +19,81 @@
      <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
      crossorigin=""></script>
+     <!--P5 and TweenMax-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
     </head>
 
-    <banner>
+    <logoA>
+      <img src="/images/FCCM BANNER.png" alt="Logo" width="500px" height="71px">
+    </logoA>
 
-      <div id="ransomizer"><div class="rww"><div style="background-color:#12CC5D;color:#000000;font-family:&#039;Tahoma&#039;, Geneva, sans-serif; font-size:110%; font-weight:bold; background-image:url(https://i.imgur.com/ruhP2kd.png) ; background-position: center top; box-shadow:-1px -1px 2px #333; line-height:75%; margin:0.1em; padding:0.2em; vertical-align:-0.1em; ">F</div><div class="rl" style="background-color:#179940;color:#ffffff;font-family:&#039;Courier&#039;, monospace; font-size:110%; font-style:italic; box-shadow:1px -1px 2px #333; text-transform:lowercase; line-height:100%; margin:0.1em; padding:0.2em; vertical-align:baseline; ">.</div><div style="background-color:#006847;color:#ceffef;font-family:&#039;Times New Roman&#039;, Times, serif; font-size:100%; font-weight:bold; background-image:url(https://i.imgur.com/1wxqouY.png) ; background-position: left bottom; text-transform:lowercase; line-height:75%; margin:0.1em; padding:0.1em; vertical-align:baseline; ">C</div><div class="rl" style="background-color:#79D65A;color:#000000;font-family:&#039;Trebuchet MS&#039;, Helvetica, sans-serif; font-size:90%; font-style:italic; box-shadow:-1px 1px 2px #333; line-height:75%; text-decoration:underline; margin:0.1em; padding:0.2em; vertical-align:-0.1em; ">R</div><div class="rl" style="background-color:#006847;color:#ceffef;font-family:&#039;Palatino Linotype&#039;, &#039;Book Antiqua&#039;, Palatino, serif; font-size:90%; box-shadow:1px 1px 2px #333; text-transform:uppercase; line-height:125%; text-decoration:underline; margin:0.1em; padding:0.1em; vertical-align:-0.1em; ">E</div><div class="rr" style="background-color:#CBE603;color:#000000;font-family:&#039;Tahoma&#039;, Geneva, sans-serif; font-size:90%; font-weight:bold; box-shadow:-1px 1px 2px #333; text-transform:lowercase; line-height:100%; margin:0.1em; padding:0.2em; vertical-align:-0.1em; ">E</div><div style="background-color:#7DA105;color:#000000;font-family:&#039;Impact&#039;, Charcoal, sans-serif; font-size:90%; background-image:url(https://i.imgur.com/pwrAKPo.png) ; background-position: center bottom; box-shadow:-1px 1px 2px #333; text-transform:uppercase; line-height:100%; text-decoration:underline; margin:0.1em; padding:0.3em; vertical-align:-0.1em; ">K</div></div> <div class="rww"><div style="background-color:#CBE603;color:#000000;font-family:&#039;Impact&#039;, Charcoal, sans-serif; font-size:110%; font-style:italic; text-transform:uppercase; line-height:100%; margin:0.1em; padding:0.3em; vertical-align:0.1em; ">C</div><div class="rl" style="background-color:#006847;color:#ceffef;font-family:&#039;Times New Roman&#039;, Times, serif; font-size:90%; background-image:url(https://i.imgur.com/ruhP2kd.png) ; background-position: left top; box-shadow:1px 1px 2px #333; line-height:125%; margin:0.1em; padding:0.3em; vertical-align:baseline; ">O</div><div class="rr" style="background-color:#12CC5D;color:#000000;font-family:&#039;Courier&#039;, monospace; font-size:90%; font-weight:bold; font-style:italic; box-shadow:1px 1px 2px #333; text-transform:lowercase; line-height:125%; margin:0.1em; padding:0.3em; vertical-align:baseline; ">L</div><div class="rr" style="background-color:#12CC5D;color:#000000;font-family:&#039;Palatino Linotype&#039;, &#039;Book Antiqua&#039;, Palatino, serif; font-size:90%; font-weight:lighter; box-shadow:-1px -1px 2px #333; text-transform:uppercase; line-height:125%; margin:0.1em; padding:0.2em; vertical-align:-0.1em; ">L</div><div class="rl" style="background-color:#006847;color:#ceffef;font-family:&#039;Georgia&#039;, serif; font-size:100%; background-image:url(https://i.imgur.com/1wxqouY.png) ; background-position: left bottom; font-style:italic; box-shadow:-1px -1px 2px #333; text-transform:uppercase; line-height:100%; margin:0.1em; padding:0.2em; vertical-align:-0.1em; ">A</div><div class="rl" style="background-color:#7DA105;color:#000000;font-family:&#039;Verdana&#039;, Geneva, sans-serif; font-size:110%; background-image:url(https://i.imgur.com/ruhP2kd.png) ; background-position: left center; box-shadow:-1px -1px 2px #333; text-transform:uppercase; line-height:125%; text-decoration:underline; margin:0.1em; padding:0.2em; vertical-align:-0.1em; ">G</div><div style="background-color:#79D65A;color:#000000;font-family:&#039;Verdana&#039;, Geneva, sans-serif; font-size:110%; font-weight:lighter; font-style:italic; box-shadow:-1px -1px 2px #333; text-transform:lowercase; line-height:100%; margin:0.1em; padding:0.2em; vertical-align:-0.1em; ">E</div></div> <div class="rww"><div class="rr" style="background-color:#BCF73E;color:#000000;font-family:&#039;Verdana&#039;, Geneva, sans-serif; font-size:100%; font-weight:bolder; background-image:url(https://i.imgur.com/pwrAKPo.png) ; background-position: left bottom; font-style:italic; box-shadow:1px 1px 2px #333; text-transform:uppercase; line-height:75%; margin:0.1em; padding:0.2em; vertical-align:-0.1em; ">M</div><div style="background-color:#86D168;color:#000000;font-family:&#039;Verdana&#039;, Geneva, sans-serif; font-size:90%; font-style:italic; box-shadow:1px -1px 2px #333; text-transform:uppercase; line-height:100%; margin:0.1em; padding:0.3em; vertical-align:baseline; ">A</div><div class="rr" style="background-color:#86D168;color:#000000;font-family:&#039;Times New Roman&#039;, Times, serif; font-size:90%; font-weight:lighter; background-image:url(https://i.imgur.com/ruhP2kd.png) ; background-position: center bottom; box-shadow:1px 1px 2px #333; text-transform:uppercase; line-height:125%; margin:0.1em; padding:0.1em; vertical-align:0.1em; ">P</div></div></div>
-      
-      </banner>
+    <logoB>
+      <img src="/images/LOGO S.png" alt="Logo" width="110px" height="138.08px">
+    </logoB>
+
+
+    <banner>
+      <div id="sketch-holder">
+        <!-- P5 BANNER SKETCH HERE-->
+      </div>
+    </banner>
 <body>
     <div id="container">
       <nav>
           <ul>
-              <li><a href="#">VR GALLERIES</a>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="#">VR Galleries</a>
               <!-- First Tier Drop Down -->
               <ul>
-                  <li><a href="https://fcreekmap.life/ecumap.html">ECUAD</a></li>
+                  <li><a href="/ecumap.html">ECUAD</a></li>
                   <li><a href="#">Habitat Island</a></li>
               </ul>        
               </li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Feedback</a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/credits.html">Credits</a></li>
           </ul>
       </nav>
   </div>
-<!--SCROLL NOTICE-->
-  <marquee behavior="scroll" direction="right">
-    <font size="2
-    "color="lightgreen">
-    
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  ▀▄▀▄▀▄▀▄This site is currently under construction,
-  some links may be broken. Thank you for your patience.▀▄▀▄▀▄▀▄
-  
-
-</font></marquee>
   <!--MAIN MENU-->
     <div class="section1">
     <h1>Welcome!</h1>
     <hr class="solid">
-    <p>Select a pin on the map to view a location a VR prompt gallery. </p>
+    <p>Select a pin on the map to view a location's prompt gallery submissions in VR! </p>
    </div>
 
 <!--Leaflet Map-->
-<div id="map"></div>
-</div>
-
-<!--JS ZONE-->
-
+<div id="map">
+<!--MAP JS SCRIPT-->
 <script>
-
 /*Set View*/
 var map = L.map('map').setView([49.2721, -123.1109], 14);
-
 /*Add Tile Layer*/
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.png', {
+    minZoom: 0,
     maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	  subdomains: 'abcd',
 }).addTo(map);
 
-/*Marker 1*/
-var marker = L.marker([49.2676, -123.0924], 13).addTo(map);
-marker.bindPopup(
-  "<b>ECUAD Demo Prompts</b><br><br>The purpose of this demo is to test various drawing and writing prompts in an unmoderated setting.<br><br><a href='https://fcreekmap.life/ecumap.html'>Check out the results in VR</a>"
-  ).openPopup();
+/*ALTERNATE WATERCOLOR TILE LAYER*/
+/*https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png*/
 
 /*Marker 2*/
 var marker = L.marker([49.2721, -123.1109], 14).addTo(map);
 marker.bindPopup(
-  "<b>Habitat Island Workshop</b><br><br>We're hosting an outdoor workshop to test out a variety of drawing and writing prompts – join us and try them out for yourself!<br><br><a href=''>Learn more</a>"
+  "<b>Habitat Island Workshop</b><br><br>We're hosting an outdoor workshop to test out a variety of drawing and writing prompts – join us and try them out for yourself!<br><br><a href='#'>Learn more (TBA)</a>"
   ).openPopup();
+
+/*Marker 1*/
+var marker = L.marker([49.2676, -123.0924], 13).addTo(map);
+marker.bindPopup(
+  "<b>ECUAD DEMO PROMPTS</b><br><br>These are an assortment of anonymously submitted answers to a number of different prompts. These are all hand drawn, scanned, and placed into a 360° VR environment.<br><br><a href='/ecumap.html'>VIEW IN VR</a>"
+  ).openPopup();
+
 
 </script>
 
+</div>
       </body>
-    </html>
+    </html> 

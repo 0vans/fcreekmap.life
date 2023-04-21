@@ -10,12 +10,15 @@
     <!--Scripts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="info-message.js"></script>
     <script src="/script.js"></script>
+    <script src="/popup-menu.js"></script>
 
   </head>
 
 <!--Page Buttons-->
   <body>
+    
     <div class="vrnav">
       <!--<br>-->
       <a id="forward" onclick="goNext()"><i class="material-icons">arrow_forward</i></a>
@@ -30,8 +33,19 @@
       <a id="help" href="#"><i class="material-icons">help</i></a>
       <a id="home" href="index.html"><i class="material-icons">home</i></a>
     </div>
+
+    <div class="popup" id="popup1">
+      <p><b>About this page</b></p>
+      <p>ECUAD Demo Prompts</p>
+      <p>These are an assortment of answers to the following prompts:</p>
+      <p>These are all anonymously submitted, hand drawn, scanned, and placed into a 360° VR environment.</p>
+      <a href="#" onclick="hide('popup1')">Ok!</a>
+    </div>
+
 <!--Toggle Aframe's Default VR/AR Modes-->
-    <a-scene image-toggle vr-mode-ui="enabled: false">
+    <a-scene 
+    image-toggle vr-mode-ui="enabled: false"
+    >
 <!--Main Home Image-->
       <a-assets>
         <img

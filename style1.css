@@ -1,89 +1,89 @@
-/*General Text*/
+/*General*/
+
+/*WEBFONTS*/
+@font-face {
+  font-family: 'helloveticaregular';
+  src: url('/webfontkit/hellovetica-webfont.woff2') format('woff2'),
+       url('/webfontkit/hellovetica-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'apple_regular';
+  src: url('/webfontkit/apple_-webfont.woff2') format('woff2'),
+       url('/webfontkit/apple_-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+logoA {
+  position:absolute;
+  left: 185px;
+  top: 45px;
+  z-index: 1;
+}
+
+logoB {
+  position:absolute;
+  left: 30px;
+  top: 25px;
+  z-index: 1;
+}
+
+img {
+
+  padding:20px;
+}
+
 
 body {
-    font-family:Trebuchet MS;
-    margin: 0;
-    padding: 0;
-  }
+  background-color: #000000;
+    font-family:'helloveticaregular';
+    font-size:11px;
+    line-height: 2em;
+  } 
 h1 {
-    font-size:18px;
-    line-height:1em;
+    color:#63C29A;
+    font-size:12px;
 }
 h2 {
-    font-size: 18px;
+    color:#63C29A;
+    font-size: 20px;
+    
 }
 p {
-    font-size:16px;
     display:inline;
     line-height:normal;
 }
 
-/* Solid border */
+/* Divider/Border */
 hr.solid {
-    border: 0.1px solid #ffffff;
+    border: 0.1px solid #63C29A;
+    margin:15px;
   }
 
 .section1 {
-    background-color:#e1ffb5;
-    color:#006946;
-    padding-top: 4px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+    background-color:#ffffff;
+    color:#FD3301;
+    padding:20px;
     margin-bottom: 10px;
   } 
 
-/*Banner Style*/
-
 banner {
-    position: relative;
-    left: 30px;
-    margin: 5px;
-  }
-  
-  #ransomizer {
-    font-size:1.5em;
-    line-height: normal;
-    word-spacing:0.01em;
-  }
-  
-  #ransomizer div {
-    display:inline-block;
-  }
-  
-  #ransomizer .rww {
-    white-space: pre;
-    display:inline;
-    margin-left: .2em;
-    margin-right: .2em;
-  }
-  
-  #ransomizer .rr {
-    -ms-transform: rotate(1.5deg);
-    -webkit-transform: rotate(1.5deg);
-    transform: rotate(1.5deg);
-  }
-  
-  #ransomizer .rl {
-    -ms-transform: rotate(-1.5deg);
-    -webkit-transform: rotate(-1.5deg);
-    transform: rotate(-1.5deg);
-  }
+  position:relative;
+  overflow: hidden;
+}
 
 /*NAV*/
   .nav {
-    background-color: #333;
     overflow: hidden;
-    position: relative;
-    z-index: 1;
   }
   .nav a {
     float: left;
-    color: white;
-    font-family: consolas;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
   }
   .nav a:hover {
     background-color: #ddd;
@@ -100,12 +100,12 @@ banner {
 }
 p {
 	text-align: center;
+  
 }
 nav {
-	margin: 5px 0;
-  position: relative;
-  z-index: 1;
-	background-color: #4CAF50;
+	margin: 10px 0;
+	background-color: #FD3301;
+
 }
 nav ul {
 	padding: 0;
@@ -115,18 +115,18 @@ nav ul {
 	}
 nav ul li {
 	display:inline-block;
-	background-color: #4CAF50;
+	background-color: #FD3301;
 	}
 nav a {
 	display:block;
-	padding:0 10px;	
+	padding:0 15px;	
 	color:#FFF;
-	font-size:15px;
+  font-size: 12px;
 	line-height: 50px;
 	text-decoration:none;
 }
 nav a:hover { 
-	background-color: #000000; 
+	background-color: #63C29A; 
 }
 /* Hide Dropdowns by Default */
 nav ul ul {
@@ -140,26 +140,27 @@ nav ul li:hover > ul {
 }
 /* Fisrt Tier Dropdown */
 nav ul ul li {
-	width:170px;
+	width:158px;
 	float:none;
 	display:list-item;
-	position: relative;
+	position:relative;
 }
 /* Second, Third and more Tiers	*/
 nav ul ul ul li {
-	position: relative;
+	position:relative;
 	top:-60px; 
 	left:170px;
 }
 /* Change this in order to change the Dropdown symbol */
-li > a:after { content:  ' ✴'; }
+li > a:after { content:  ' ▼'; }
 li > a:only-child:after { content: ''; }
 
-
 /*Map Style*/  
-
 #map {
-    height:600px;
+    position:relative;
+    top:0px;
+    height:550px;
     width:100%;
     font-size:9px;
+    font-family: 'verdana';
 }
