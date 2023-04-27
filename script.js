@@ -1,4 +1,4 @@
-/* MAP JS*/
+/* MAP 1 JS*/
 
 var zerod = 0;
 var images = [
